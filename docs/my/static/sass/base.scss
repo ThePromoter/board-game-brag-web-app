@@ -1,9 +1,17 @@
 @import "compass/css3";
 @import "compass/reset";
+@import "compass/utilities/sprites";
 @import "partials/mixins";
 @import "partials/text";
 
+@import "icons/*.png";
+@include all-icons-sprites;
+
 $borderColor: #dadfeb;
+
+* {
+    @include box-sizing(border-box);
+}
 
 body {
     background-color: #ebecf2;
@@ -13,23 +21,44 @@ header {
     background-color: #fff;
 }
 
-#logo {
+#logo-banner {
     height: 50px;
     font-family: $headerFontFamily;
     font-size: 25px;
     padding-top: 10px;
     padding-bottom: 10px;
+    padding-left: 35px;
     text-align: center;
     
     @include respond-to(medium) { text-align: left; }
     @include respond-to(large) { text-align: left; }
 }
 
+#logo-text {
+    display: inline;
+    position: relative;
+    padding-left: 20px;
+    
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -20px;
+        display: block;
+        height: 30px;
+        width: 30px;
+        @include icons-sprite(logo);
+    }
+}
+
 #main-nav {
-    height: 50px;
+    min-height: 50px;
+    padding-bottom: 5px;
+    
+    @include respond-to(medium) { padding-bottom: 0; }
+    @include respond-to(large) { padding-bottom: 0; }
     
     > ul {
-        height: 100%;
         text-align: center;
         
         @include respond-to(medium) { text-align: right; }
@@ -37,13 +66,34 @@ header {
     }
     
     li {
-        border-right: solid 1px $borderColor;
-        padding: 15px 20px;
-        
-        &:first-child {
-            border-left: solid 1px $borderColor;
-        }
+        padding: 15px 10px 15px 40px;
+        &:before { top: 10px; left: 0; }
     }
+}
+
+.icon {
+    position: relative;
+    
+    &:before {
+        position: absolute;
+        left: 0;
+    }
+}
+
+.small-icons .icon:before {
+    content: '';
+    display: block;
+    float: left;
+    height: 30px;
+    width: 30px;
+}
+
+.icon {
+    &.dice:before { @include icons-sprite(dice); }
+    &.clock:before { @include icons-sprite(clock); }
+    &.library:before { @include icons-sprite(library); }
+    &.group:before { @include icons-sprite(group); }
+    &.trophy:before { @include icons-sprite(trophy); }
 }
 
 ul.horizontal {
@@ -52,11 +102,24 @@ ul.horizontal {
     }
 }
 
-nav{
-    ul.side {
-        background-color: #fff;
-        @include border-radius(3px);
-        @include box-shadow(1px 1px 5px 0 $borderColor);
+ul.main-actions > .action {
+    &:hover,
+    &:active {
+        background-color: $borderColor;
+        
+    }
+}
+
+ul.side-actions {
+    background-color: #fff;
+    @include border-radius(3px);
+    @include box-shadow(1px 1px 5px 0 $borderColor);
+    
+    li {
+        height: 50px;
+        padding: 15px 0 15px 50px;
+        
+        &:before { top: 10px; left: 10px; }
     }
 }
 
@@ -73,6 +136,7 @@ nav{
 .action-right,
 .action-left {
     text-align: center;
+    margin-top: 5px;
 }
 
 .action-right {
@@ -81,8 +145,6 @@ nav{
 }
 
 .action-left {
-    margin-top: 5px;
-    
     @include respond-to(medium) { text-align: left; margin-top: 0; }
     @include respond-to(large) { text-align: left; margin-top: 0; }
 }
@@ -94,11 +156,20 @@ nav{
     text-align: center;
     @include border-radius(5px);
     padding: 5px 0;
+    cursor: pointer;
     
     &.large {
         font-size: 25px;
         line-height: 30px;
     }
+}
+
+.action {
+    cursor: pointer;
+}
+
+#main-content {
+    margin-bottom: 20px;
 }
 
 .shadow-top {

@@ -16,16 +16,17 @@
         <section id="page-container">
             <header>
                 <div class="grid-container">
-                    <div id="logo" class="grid-33 tablet-grid-33 mobile-grid-100 heading">
-                        boardgamebrag
+                    <div id="logo-banner" class="grid-33 tablet-grid-33 mobile-grid-100 heading">
+<!--                         <div id="logo-icon"></div> -->
+                        <div id="logo-text">boardgamebrag</div>
                     </div>
                     <nav id="main-nav" class="grid-66 tablet-grid-66 hide-on-desktop mobile-grid-100">
-                        <ul class="horizontal large-icons">
-                            <li>Gamer Profile</li>
-                            <li>Recent Games</li>
-                            <li>Game Collection</li>
-                            <li>Play Groups</li>
-                            <li>Rankings</li>
+                        <ul class="horizontal small-icons main-actions">
+                            <li class="icon dice action">Gamer Profile</li>
+                            <li class="icon clock action">Recent Games</li>
+                            <li class="icon library action">Game Collection</li>
+                            <li class="icon group action">Play Groups</li>
+                            <li class="icon trophy action">Rankings</li>
                         </ul>
                     </nav>
                 </div>
