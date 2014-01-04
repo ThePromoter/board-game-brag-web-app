@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans    xmlns="http://www.springframework.org/schema/security" 
+                xmlns:beans="http://www.springframework.org/schema/beans" 
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:context="http://www.springframework.org/schema/context"
+                xsi:schemaLocation="http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+                http://www.springframework.org/schema/security
+                http://www.springframework.org/schema/security/spring-security-3.2.xsd
+                http://www.springframework.org/schema/context
+                http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+    
+    <http pattern="/" security="none"/>
+    <http pattern="/favicon.ico" security="none" />
+    
+    <!-- Secured pages -->
+    
+<!--     <http auto-config="false" entry-point-ref="restAuthEntryPoint"> -->
+<!--         <remember-me services-ref="rememberMeServices" /> -->
+<!--         <intercept-url pattern="/rest/**"   access="ROLE_USER, ROLE_INVITATION" />     -->
+<!--         <intercept-url pattern="/**"        access="ROLE_USER, ROLE_INVITATION" /> -->
+<!--         <custom-filter before="CAS_FILTER" ref="restAuthenticationFilter" /> -->
+<!--         <custom-filter before="BASIC_AUTH_FILTER" ref="invitationFilter" /> -->
+<!--         <custom-filter before="FORM_LOGIN_FILTER" ref="internalSsoFilter" /> -->
+<!--         <custom-filter before="PRE_AUTH_FILTER" ref="externalSsoFilter" /> -->
+<!--         <logout logout-url="/logout" logout-success-url="/#signin"/> -->
+<!--     </http> -->
+    
+    <authentication-manager alias="authenticationManager">
+<!--         <authentication-provider user-service-ref="dotLoopUserDetailsService"> -->
+<!--             <password-encoder ref="dotLoopPasswordEncoder"> -->
+<!--                 <salt-source ref="dotLoopSaltSource" /> -->
+<!--             </password-encoder> -->
+<!--         </authentication-provider> -->
+    </authentication-manager>
+
+<!--     <global-method-security pre-post-annotations="enabled"> -->
+<!--         <expression-handler ref="expressionHandler" /> -->
+<!--     </global-method-security> -->
+    
+<!--     <beans:bean id="rememberMeServices" class="com.dotloop.phoenix.security.DotLoopRememberMeServices"> -->
+<!--       <beans:property name="userService" ref="userService"/> -->
+<!--       <beans:property name="checkboxParameterName" value="_rememberme__"/> -->
+<!--       <beans:property name="cookieName" value="dl_rememberme"/> -->
+<!--       <beans:property name="enabled" value="true" /> -->
+<!--       <beans:property name="cookieMaxAge" value="31556900" /> 1 year -->
+<!--     </beans:bean> -->
+
+<!--     <beans:bean id="restAuthEntryPoint" class="com.dotloop.phoenix.security.RestLoginUrlAuthenticationEntryPoint"> -->
+<!--        <beans:property name="loginFormUrl" value="/#signin" /> -->
+<!--     </beans:bean> -->
+    
+<!--     <beans:bean id="restAuthenticationFilter" class="com.dotloop.phoenix.security.RestAuthenticationFilter"> -->
+<!--         <beans:property name="authenticationManager" ref="authenticationManager" /> -->
+<!--         <beans:property name="dotLoopPasswordEncoder" ref="dotLoopPasswordEncoder"/> -->
+<!--         <beans:property name="dotLoopUserDetailsService" ref="dotLoopUserDetailsService"/> -->
+<!--         <beans:property name="authenticationSuccessHandler" ref="restAuthenticationSuccessHandler"/> -->
+<!--         <beans:property name="authenticationFailureHandler" ref="restAuthenticationFailureHandler"/> -->
+<!--         <beans:property name="profileService" ref="profileService"/> -->
+<!--         <beans:property name="userService" ref="userService"/> -->
+<!--         <beans:property name="rememberMeServices" ref="rememberMeServices"/> -->
+<!--     </beans:bean> -->
+    
+<!--     <beans:bean id="restAuthenticationFailureHandler" class="com.dotloop.phoenix.security.RestAuthenticationFailureHandler"> -->
+<!--         <beans:property name="securityService" ref="securityService"/> -->
+<!--     </beans:bean> -->
+    
+<!--     <beans:bean id="restAuthenticationSuccessHandler" class="com.dotloop.phoenix.security.RestAuthenticationSuccessHandler"> -->
+<!--         <beans:property name="securityService" ref="securityService"/> -->
+<!--         <beans:property name="userService" ref="userService"/>        -->
+<!--     </beans:bean> -->
+</beans:beans>

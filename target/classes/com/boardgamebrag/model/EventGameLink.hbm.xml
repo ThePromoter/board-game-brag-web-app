@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 29, 2013 3:14:57 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.boardgamebrag.model.EventGameLink" table="event_game_link" catalog="boardgamebrag_dev">
+        <id name="eventGameLinkId" type="java.lang.Long">
+            <column name="event_game_link_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="game" class="com.boardgamebrag.model.Game" fetch="select">
+            <column name="game_id" not-null="true" unique="true" />
+        </many-to-one>
+        <many-to-one name="event" class="com.boardgamebrag.model.Event" fetch="select">
+            <column name="event_id" not-null="true" unique="true" />
+        </many-to-one>
+        <property name="enteredBy" type="long">
+            <column name="entered_by" not-null="true" />
+        </property>
+        <property name="enteredDate" type="timestamp">
+            <column name="entered_date" length="19" not-null="true" />
+        </property>
+        <property name="changedBy" type="java.lang.Long">
+            <column name="changed_by" />
+        </property>
+        <property name="changedDate" type="timestamp">
+            <column name="changed_date" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

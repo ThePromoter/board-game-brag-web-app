@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+    <table-filter match-name=".*" match-catalog="boardgamebrag_dev"></table-filter>
+    <table catalog="boardgamebrag_dev" name="user_location_link">
+        <column name="user_location_id"></column>
+        <column name="user_id"></column>
+        <column name="location_id"></column>
+        <column name="nickname"></column>
+        <column name="entered_by"></column>
+        <column name="entered_date"></column>
+        <column name="changed_by"></column>
+        <column name="changed_date"></column>
+    </table>
+    <table catalog="boardgamebrag_dev" name="game">
+        <column name="game_id"></column>
+        <column name="name"></column>
+        <column name="image_url"></column>
+        <column name="min_players"></column>
+        <column name="max_players"></column>
+        <column name="entered_by"></column>
+        <column name="entered_date"></column>
+        <column name="changed_by"></column>
+        <column name="changed_date"></column>
+    </table>
+    <table catalog="boardgamebrag_dev" name="user">
+        <primary-key></primary-key>
+        <column name="user_id"></column>
+        <column name="email_address"></column>
+        <column name="name"></column>
+        <column name="experience"></column>
+        <column name="password_hash"></column>
+        <column name="password_salt"></column>
+        <column name="zipcode"></column>
+        <column name="entered_by"></column>
+        <column name="entered_date"></column>
+        <column name="changed_by"></column>
+        <column name="changed_date"></column>
+    </table>
+    <table catalog="boardgamebrag_dev" name="location">
+        <column name="location_id"></column>
+        <column name="address_number"></column>
+        <column name="address_street"></column>
+        <column name="address_city"></column>
+        <column name="address_state"></column>
+        <column name="address_zipcode"></column>
+        <column name="address_apt_number"></column>
+        <column name="entered_by"></column>
+        <column name="entered_date"></column>
+        <column name="changed_by"></column>
+        <column name="changed_date"></column>
+    </table>
+    <table catalog="boardgamebrag_dev" name="event_user_link">
+        <column name="event_user_link_id"></column>
+        <column name="event_id"></column>
+        <column name="user_id"></column>
+        <column name="entered_by"></column>
+        <column name="entered_date"></column>
+        <column name="changed_by"></column>
+        <column name="changed_date"></column>
+    </table>
+    <table catalog="boardgamebrag_dev" name="user_game_feedback">
+        <column name="user_game_feedback_id"></column>
+        <column name="event_id"></column>
+        <column name="game_id"></column>
+        <column name="source_user_id"></column>
+        <column name="target_user_id"></column>
+        <column name="rating"></column>
+        <column name="title_id"></column>
+        <column name="entered_by"></column>
+        <column name="entered_date"></column>
+        <column name="changed_by"></column>
+        <column name="changed_date"></column>
+    </table>
+    <table catalog="boardgamebrag_dev" name="feedback_title">
+        <column name="title_id"></column>
+        <column name="name"></column>
+        <column name="entered_by"></column>
+        <column name="entered_date"></column>
+        <column name="changed_by"></column>
+        <column name="changed_date"></column>
+    </table>
+    <table catalog="boardgamebrag_dev" name="user_game_link">
+        <column name="user_game_id"></column>
+        <column name="user_id"></column>
+        <column name="game_id"></column>
+        <column name="entered_by"></column>
+        <column name="entered_date"></column>
+        <column name="changed_by"></column>
+        <column name="changed_date"></column>
+    </table>
+    <table catalog="boardgamebrag_dev" name="event_game_link">
+        <column name="event_game_link_id"></column>
+        <column name="event_id"></column>
+        <column name="game_id"></column>
+        <column name="entered_by"></column>
+        <column name="entered_date"></column>
+        <column name="changed_by"></column>
+        <column name="changed_date"></column>
+    </table>
+    <table catalog="boardgamebrag_dev" name="game_result">
+        <column name="game_result_id"></column>
+        <column name="event_id"></column>
+        <column name="game_id"></column>
+        <column name="source_user_id"></column>
+        <column name="winning_user_id"></column>
+        <column name="entered_by"></column>
+        <column name="entered_date"></column>
+        <column name="changed_by"></column>
+        <column name="changed_date"></column>
+    </table>
+    <table catalog="boardgamebrag_dev" name="event">
+        <column name="event_id"></column>
+        <column name="name"></column>
+        <column name="creator"></column>
+        <column name="date"></column>
+        <column name="entered_by"></column>
+        <column name="entered_date"></column>
+        <column name="changed_by"></column>
+        <column name="changed_date"></column>
+    </table>
+</hibernate-reverse-engineering>
