@@ -1,0 +1,14 @@
+$media-mobile-max: 767px !default;
+$media-tablet-min: 768px !default;
+$media-tablet-max: 1024px !default;
+$media-desktop-min: 1025px !default;
+
+@mixin respond-to($media) {
+    @if $media == small {
+        @media only screen and (max-width: $media-mobile-max) { @content; }
+    } @else if $media == medium {
+        @media only screen and (min-width: $media-tablet-min) and (max-width: $media-tablet-max) { @content; }
+    } @else if $media == large {
+        @media only screen and (min-width: $media-desktop-min) { @content; }
+    }
+}

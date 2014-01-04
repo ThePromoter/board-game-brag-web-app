@@ -1,4 +1,134 @@
 @import "compass/css3";
 @import "compass/reset";
+@import "partials/mixins";
 @import "partials/text";
 
+$borderColor: #dadfeb;
+
+body {
+    background-color: #ebecf2;
+}
+
+header {
+    background-color: #fff;
+}
+
+#logo {
+    height: 50px;
+    font-family: $headerFontFamily;
+    font-size: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    
+    @include respond-to(medium) { text-align: left; }
+    @include respond-to(large) { text-align: left; }
+}
+
+#main-nav {
+    height: 50px;
+    
+    > ul {
+        height: 100%;
+        text-align: center;
+        
+        @include respond-to(medium) { text-align: right; }
+        @include respond-to(large) { text-align: right; }
+    }
+    
+    li {
+        border-right: solid 1px $borderColor;
+        padding: 15px 20px;
+        
+        &:first-child {
+            border-left: solid 1px $borderColor;
+        }
+    }
+}
+
+ul.horizontal {
+    li {
+        display: inline-block;
+    }
+}
+
+nav{
+    ul.side {
+        background-color: #fff;
+        @include border-radius(3px);
+        @include box-shadow(1px 1px 5px 0 $borderColor);
+    }
+}
+
+.content {
+    background-color: #fff;
+    @include border-radius(3px);
+    @include box-shadow(1px 1px 5px 0 $borderColor);
+}
+
+#main-actions {
+    margin-bottom: 10px;
+}
+
+.action-right,
+.action-left {
+    text-align: center;
+}
+
+.action-right {
+    @include respond-to(medium) { text-align: right; }
+    @include respond-to(large) { text-align: right; }
+}
+
+.action-left {
+    margin-top: 5px;
+    
+    @include respond-to(medium) { text-align: left; margin-top: 0; }
+    @include respond-to(large) { text-align: left; margin-top: 0; }
+}
+
+.button {
+    display: block;
+    background-color: #44c47a;
+    color: #fff;
+    text-align: center;
+    @include border-radius(5px);
+    padding: 5px 0;
+    
+    &.large {
+        font-size: 25px;
+        line-height: 30px;
+    }
+}
+
+.shadow-top {
+    &:before {
+        content: '';
+        float: left;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.12) 0%, rgba(255,255,255,0) 100%);
+        height: 10px;
+        width: 100%;
+    }
+}
+
+footer {
+    background-color: #fff;
+    border-top: solid 1px $borderColor;
+    
+    > ul {
+        text-align: center;
+    }
+    
+    li {
+        padding: 0 5px;
+        
+        &:before {
+            content: "-";
+            margin-right: 10px;
+        }
+        
+        &:first-child:before {
+            display: none;
+        }
+    }
+}

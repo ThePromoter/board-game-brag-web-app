@@ -1,27 +1,43 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700);
+@import url(http://fonts.googleapis.com/css?family=Sansita+One);
+$sansFontFamily:   'PT Sans Narrow',tahoma,sans-serif;
+$headerFontFamily: 'Sansita one', Georgia, serif;
+
 body {
-    font: 400 14px/1.6 'Open Sans', Verdana, Helvetica, sans-serif;
+    font: 400 16px/20px $sansFontFamily;
 }
+
+.heading {
+    font: 400 60px/1.2 'Sansita one', Georgia, serif;
+}
+
 hr {
     border: solid 0 #ccc;
     border-top-width: 1px;
     clear: both;
     height: 0;
 }
+
 h1 {
     font-size: 25px;
 }
+
 h2 {
     font-size: 23px;
 }
+
 h3 {
     font-size: 21px;
 }
+
 h4 {
     font-size: 19px;
 }
+
 h5 {
     font-size: 17px;
 }
+
 h6 {
     font-size: 15px;
 }

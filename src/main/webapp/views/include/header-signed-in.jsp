@@ -13,13 +13,23 @@
         <%@ include file="import-css.jsp" %>
     </head>
     <body>
-        <section id="main-content" class="grid-container">
+        <section id="page-container">
             <header>
-                <div id="logo"></div>
+                <div class="grid-container">
+                    <div id="logo" class="grid-33 tablet-grid-33 mobile-grid-100 heading">
+                        boardgamebrag
+                    </div>
+                    <nav id="main-nav" class="grid-66 tablet-grid-66 hide-on-desktop mobile-grid-100">
+                        <ul class="horizontal large-icons">
+                            <li>Gamer Profile</li>
+                            <li>Recent Games</li>
+                            <li>Game Collection</li>
+                            <li>Play Groups</li>
+                            <li>Rankings</li>
+                        </ul>
+                    </nav>
+                </div>
             </header>
-            <nav id="main-nav">
-                <ul>
-                    <li>Header A</li>
-                    <li>Header B</li>
-                </ul>
-            </nav>
+            
+            <section id="main-content" class="shadow-top">
+                <div class="grid-container">
