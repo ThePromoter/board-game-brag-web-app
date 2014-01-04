@@ -66,8 +66,8 @@ header {
     }
     
     li {
-        padding: 15px 10px 15px 40px;
-        &:before { top: 10px; left: 0; }
+        padding: 15px 10px 15px 50px;
+        &:before { top: 10px; left: 10px; }
     }
 }
 
@@ -103,10 +103,39 @@ ul.horizontal {
 }
 
 ul.main-actions > .action {
-    &:hover,
+    border: solid 1px transparent;
+    @include transition-property(border-color);
+    @include transition-duration(.3s);
+    
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: -1px;
+        bottom: -1px;
+        left: -1px;
+        right: -1px;
+        border: solid 1px white;
+        z-index: 1;
+        @include border-radius(0);
+        @include transition-property(border-radius);
+        @include transition-duration(.3s);
+    }
+    
+    &:hover {
+        border-color: black;
+        
+        &:after {
+            @include border-radius(15px);
+        }
+    }
+    
     &:active {
         background-color: $borderColor;
         
+        &:after {
+            border-color: $borderColor;
+        }
     }
 }
 
