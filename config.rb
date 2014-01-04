@@ -1,0 +1,10 @@
+preferred_syntax = :sass
+http_path = "/"
+css_dir = "docs/my/static/css"
+sass_dir = "docs/my/static/sass"
+images_dir = "docs/my/static/images"
+javascripts_dir = "docs/my/static/js"
+relative_assets = true
+line_comments = false
+# output_style = :compressed
+disable_warnings = true

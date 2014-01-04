@@ -1,12 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=US-ASCII"
-    pageEncoding="US-ASCII"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-        <title>Home</title>
-    </head>
-    <body>
-        <h1>Games</h1>
-    </body>
-</html>
+<%@ include file="include/header-signed-in.jsp" %>
+
+    <div class="grid-50">
+    I am 50% wide.
+  </div>
+  <div class="grid-25">
+    I am 25% wide.
+  </div>
+  <div class="grid-25">
+    I am 25% wide.
+  </div>
+
+<c:set var="mainJsFileLocation" value="main/home-main" />
+<%@ include file="include/footer-signed-in.jsp" %>
