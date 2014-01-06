@@ -20,17 +20,18 @@
 <!--                         <div id="logo-icon"></div> -->
                         <div id="logo-text">boardgamebrag</div>
                     </div>
-                    <nav id="main-nav" class="grid-66 tablet-grid-66 hide-on-desktop mobile-grid-100">
+                    <nav id="main-nav" class="grid-66 tablet-grid-66 mobile-grid-100">
                         <ul class="horizontal small-icons main-actions">
-                            <li class="icon dice action">Gamer Profile</li>
-                            <li class="icon clock action">Recent Games</li>
-                            <li class="icon library action">Game Collection</li>
-                            <li class="icon group action">Play Groups</li>
-                            <li class="icon trophy action">Rankings</li>
+                            <li class="icon dice action profile<c:if test="${pageName == 'profile'}"> active</c:if>"><span>Gamer Profile</span></li>
+                            <li class="icon clock action history<c:if test="${pageName == 'history'}"> active</c:if>"><span>Recent Games</span></li>
+                            <li class="icon library action collection<c:if test="${pageName == 'game-library'}"> active</c:if>"><span>Game Collection</span></li>
+                            <li class="icon group action groups<c:if test="${pageName == 'game-groups'}"> active</c:if>"><span>Play Groups</span></li>
+                            <li class="icon trophy action rankings<c:if test="${pageName == 'rankings'}"> active</c:if>"><span>Rankings</span></li>
                         </ul>
                     </nav>
                 </div>
             </header>
             
+            <div class="grid-parent grid-100 progress-bar"><div class="completed"></div></div>
             <section id="main-content" class="shadow-top">
                 <div class="grid-container">

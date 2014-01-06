@@ -1,171 +1,53 @@
 @import "compass/css3";
 @import "compass/reset";
-@import "compass/utilities/sprites";
+@import "partials/variables";
 @import "partials/mixins";
 @import "partials/text";
-
-@import "icons/*.png";
-@include all-icons-sprites;
-
-$borderColor: #dadfeb;
+@import "partials/lists";
+@import "partials/icons";
+@import "partials/links";
+@import "partials/header";
+@import "partials/footer";
 
 * {
     @include box-sizing(border-box);
 }
 
 body {
-    background-color: #ebecf2;
-}
-
-header {
-    background-color: #fff;
-}
-
-#logo-banner {
-    height: 50px;
-    font-family: $headerFontFamily;
-    font-size: 25px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 35px;
-    text-align: center;
-    
-    @include respond-to(medium) { text-align: left; }
-    @include respond-to(large) { text-align: left; }
-}
-
-#logo-text {
-    display: inline;
-    position: relative;
-    padding-left: 20px;
-    
-    &:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -20px;
-        display: block;
-        height: 30px;
-        width: 30px;
-        @include icons-sprite(logo);
-    }
-}
-
-#main-nav {
-    min-height: 50px;
-    padding-bottom: 5px;
-    
-    @include respond-to(medium) { padding-bottom: 0; }
-    @include respond-to(large) { padding-bottom: 0; }
-    
-    > ul {
-        text-align: center;
-        
-        @include respond-to(medium) { text-align: right; }
-        @include respond-to(large) { text-align: right; }
-    }
-    
-    li {
-        padding: 15px 10px 15px 50px;
-        &:before { top: 10px; left: 10px; }
-    }
-}
-
-.icon {
-    position: relative;
-    
-    &:before {
-        position: absolute;
-        left: 0;
-    }
-}
-
-.small-icons .icon:before {
-    content: '';
-    display: block;
-    float: left;
-    height: 30px;
-    width: 30px;
-}
-
-.icon {
-    &.dice:before { @include icons-sprite(dice); }
-    &.clock:before { @include icons-sprite(clock); }
-    &.library:before { @include icons-sprite(library); }
-    &.group:before { @include icons-sprite(group); }
-    &.trophy:before { @include icons-sprite(trophy); }
-}
-
-ul.horizontal {
-    li {
-        display: inline-block;
-    }
-}
-
-ul.main-actions > .action {
-    border: solid 1px transparent;
-    @include transition-property(border-color);
-    @include transition-duration(.3s);
-    
-    &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        top: -1px;
-        bottom: -1px;
-        left: -1px;
-        right: -1px;
-        border: solid 1px white;
-        z-index: 1;
-        @include border-radius(0);
-        @include transition-property(border-radius);
-        @include transition-duration(.3s);
-    }
-    
-    &:hover {
-        border-color: black;
-        
-        &:after {
-            @include border-radius(15px);
-        }
-    }
-    
-    &:active {
-        background-color: $borderColor;
-        
-        &:after {
-            border-color: $borderColor;
-        }
-    }
+    background-color: $colorGray;
+    color: $colorGrayDark;
 }
 
 ul.side-actions {
-    background-color: #fff;
+    background-color: $colorWhite;
     @include border-radius(3px);
-    @include box-shadow(1px 1px 5px 0 $borderColor);
-    
-    li {
-        height: 50px;
-        padding: 15px 0 15px 50px;
-        
-        &:before { top: 10px; left: 10px; }
-    }
+    @include box-shadow(1px 1px 5px 0 $colorGray);
 }
 
 .content {
-    background-color: #fff;
+    background-color: $colorWhite;
     @include border-radius(3px);
-    @include box-shadow(1px 1px 5px 0 $borderColor);
+    @include box-shadow(1px 1px 5px 0 $colorGray);
+}
+
+.progress-bar {
+    .completed {
+        display: none;
+        width: 0;
+        height: 5px;
+        background-color: $colorLight;
+        @include transition-property(width);
+        @include transition-duration(.25s);
+    }
 }
 
 #main-actions {
-    margin-bottom: 10px;
+    margin: 5px 0 10px 0;
 }
 
 .action-right,
 .action-left {
     text-align: center;
-    margin-top: 5px;
 }
 
 .action-right {
@@ -174,27 +56,8 @@ ul.side-actions {
 }
 
 .action-left {
-    @include respond-to(medium) { text-align: left; margin-top: 0; }
-    @include respond-to(large) { text-align: left; margin-top: 0; }
-}
-
-.button {
-    display: block;
-    background-color: #44c47a;
-    color: #fff;
-    text-align: center;
-    @include border-radius(5px);
-    padding: 5px 0;
-    cursor: pointer;
-    
-    &.large {
-        font-size: 25px;
-        line-height: 30px;
-    }
-}
-
-.action {
-    cursor: pointer;
+    @include respond-to(medium) { text-align: left; }
+    @include respond-to(large) { text-align: left; }
 }
 
 #main-content {
@@ -208,27 +71,5 @@ ul.side-actions {
         background: linear-gradient(to bottom, rgba(0,0,0,0.12) 0%, rgba(255,255,255,0) 100%);
         height: 10px;
         width: 100%;
-    }
-}
-
-footer {
-    background-color: #fff;
-    border-top: solid 1px $borderColor;
-    
-    > ul {
-        text-align: center;
-    }
-    
-    li {
-        padding: 0 5px;
-        
-        &:before {
-            content: "-";
-            margin-right: 10px;
-        }
-        
-        &:first-child:before {
-            display: none;
-        }
     }
 }

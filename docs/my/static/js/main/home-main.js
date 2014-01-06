@@ -1,14 +1,6 @@
 require([
-    'views/LayoutManager'
+    'routers/MainRouter'
 ],
-function(LayoutManager) {
-    var Page = LayoutManager.extend({
-        render: function() {
-            this._super('render');
-            
-            return this;
-        }
-    });
+function(app) {
     
-    (new Page()).render();
 });

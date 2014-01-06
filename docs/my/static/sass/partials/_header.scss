@@ -1,0 +1,109 @@
+header {
+    background-color: $colorWhite;
+    padding: 5px 0;
+}
+
+#logo-banner {
+    font-family: $headerFontFamily;
+    font-size: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 35px;
+    text-align: center;
+    
+    @include respond-to(medium) { text-align: left; }
+    @include respond-to(large) { text-align: left; }
+}
+
+#logo-text {
+    display: inline;
+    position: relative;
+    padding-left: 20px;
+    
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -20px;
+        display: block;
+        height: 30px;
+        width: 30px;
+    }
+}
+
+#main-nav {
+    min-height: 40px;
+    
+    @include respond-to(medium) { padding-bottom: 0; }
+    @include respond-to(large) { padding-bottom: 0; }
+}
+
+ul.main-actions {
+    @include respond-to(medium) { height: 40px; }
+    @include respond-to(large) { height: 40px; }
+    
+    .action {
+        border: solid 1px transparent;
+        padding: 10px 5px 10px 40px;
+        @include respond-to(medium) { height: 100%; }
+        @include respond-to(large) { height: 100%; }
+        @include transition-property(border-color);
+        @include transition-duration(.3s);
+        
+        span {
+            display: block;
+            float: left;
+            overflow: hidden;
+            
+            @include respond-to(medium) { max-width: 0; @include opacity(0); }
+            @include respond-to(large) { max-width: 0; @include opacity(0); }
+            @include single-transition(opacity .1s linear 0s, max-width .1s linear 0s);
+        }
+        
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: -1px;
+            bottom: -1px;
+            left: -1px;
+            right: -1px;
+            border: solid 1px $colorWhite;
+            z-index: 1;
+            @include border-radius(0);
+            @include transition-property(border-radius);
+            @include transition-duration(.3s);
+        }
+        
+        &.active {
+            span {
+                max-width: 200px;
+                color: $color;
+                font-weight: 600;
+                @include opacity(1);
+            }
+        }
+        
+        &:hover {
+            border-color: $colorGrayDark;
+            
+            span {
+                max-width: 200px;
+                @include opacity(1);
+                @include single-transition(max-width .25s linear 0s, opacity .1s linear .1s);
+            }
+            
+            &:after {
+                @include border-radius(15px);
+            }
+        }
+        
+        &:active {
+            background-color: $colorLighter;
+            
+            &:after {
+                border-color: $colorLighter;
+            }
+        }
+    }
+}

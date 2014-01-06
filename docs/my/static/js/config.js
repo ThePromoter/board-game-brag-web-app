@@ -25,17 +25,19 @@ require.config({
         // Libraries
         'backbone-lib'        : 'lib/backbone/backbone-1.1.0',
         'underscore'          : 'lib/underscore/underscore-1.5.2',
+        'json2'               : 'lib/json2',
         
         // jQuery plugins
         'jquery'              : 'lib/jquery/jquery-2.0.3',
+        'jquery-libs'         : 'lib/jquery/jquery-libs',
         
         // Backbone support
         'backbone'            : 'lib/backbone/backbone-plugin',
         
         // Templating
         'hbs'                 : 'lib/handlebars/hbs',
-        'handlebars'          : 'lib/handlebars/handlebars-1.3.0',
-        'i18nprecompile'      : 'lib/handlebars/deps/i18nprecompile'
+        'i18nprecompile'      : 'lib/handlebars/deps/i18nprecompile',
+        'handlebars'          : 'lib/handlebars/handlebars-1.3.0'
     },
     
     // Define dependencies manually if the library doesn't support AMD
@@ -46,6 +48,15 @@ require.config({
         },
         'jquery': {
             exports: '$'
+        },
+        'json2': {
+            exports: 'JSON'
+        },
+        'handlebars': {
+            exports: 'Handlebars'
+        },
+        'underscore': {
+            exports: '_'
         }
     }
 });

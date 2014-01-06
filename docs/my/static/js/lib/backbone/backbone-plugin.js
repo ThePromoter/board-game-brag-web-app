@@ -28,8 +28,21 @@ define([
                 clearInterval(timer);
             });
         }
-        this.timers.length = 0;
+        this.timers && (this.timers.length = 0);
         this.afterClose && this.afterClose();
+    };
+    
+    /* 
+     * Provide a series of methods for registering and cleaning up child views
+     */
+    Backbone.View.prototype.registerSubView = function(newSubView) {
+        if(!this.subViews) { this.subViews = new Array(); }
+        
+        // Do a check to see if this sub view is already registered
+        if(_.some(this.subViews, function(view) { return view.cid === newSubView.cid; }) === false) {
+            // This view is not present in the current sub view array, go ahead and add it
+            this.subViews.push(newSubView);
+        }
     };
     
     /*

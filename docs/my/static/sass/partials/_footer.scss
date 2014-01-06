@@ -1,0 +1,21 @@
+footer {
+    background-color: #fff;
+    border-top: solid 1px $colorGray;
+    
+    ul.horizontal {
+        text-align: center;
+        
+        li {
+            padding: 0 0 0 3px;
+            
+            &:before {
+                content: "-";
+                margin-right: 5px;
+            }
+            
+            &:first-child:before {
+                display: none;
+            }
+        }
+    }
+}

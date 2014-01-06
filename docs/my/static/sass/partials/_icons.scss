@@ -1,0 +1,32 @@
+@import "compass/utilities/sprites";
+@import "icons/*.png";
+@include all-icons-sprites;
+
+#logo-text:before {
+    @include icons-sprite(logo);
+}
+
+.icon {
+    position: relative;
+    
+    &:before {
+        position: absolute;
+        left: 0;
+    }
+}
+
+.small-icons .icon:before {
+    content: '';
+    display: block;
+    float: left;
+    height: 30px;
+    width: 30px;
+}
+
+.icon {
+    &.dice:before { @include icons-sprite(dice); }
+    &.clock:before { @include icons-sprite(clock); }
+    &.library:before { @include icons-sprite(library); }
+    &.group:before { @include icons-sprite(group); }
+    &.trophy:before { @include icons-sprite(trophy); }
+}

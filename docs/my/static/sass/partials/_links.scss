@@ -1,0 +1,30 @@
+.button {
+    display: block;
+    background-color: $color;
+    color: $colorWhite;
+    text-align: center;
+    @include border-radius(5px);
+    padding: 5px 0;
+    cursor: pointer;
+    @include disable-text-select();
+    @include transition-property(background-color);
+    @include transition-duration(.2s);
+    
+    &.large {
+        font-size: 25px;
+        line-height: 30px;
+    }
+    
+    &:hover {
+        background-color: $colorLight;
+    }
+    
+    &:active {
+        background-color: $colorDark;
+    }
+}
+
+.action {
+    cursor: pointer;
+    @include disable-text-select();
+}
