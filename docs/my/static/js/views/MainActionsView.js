@@ -1,6 +1,8 @@
 define([
+    'models/GameSession',
+    'views/popups/ScheduleGamePopupView',
     'backbone'
-], function(Backbone) {
+], function(GameSession, ScheduleGamePopupView, Backbone) {
     return Backbone.View.extend({
         el: $('#main-actions'),
         events: {
@@ -8,7 +10,12 @@ define([
             'click .calendar' : 'showCalendar'
         },
         showPlayPopup: function() {
+            var gameSession = new GameSession();
             
+            var scheduleGamePopup = new ScheduleGamePopupView({
+                model: gameSession
+            });
+            scheduleGamePopup.render();
         },
         showCalendar: function() {
             

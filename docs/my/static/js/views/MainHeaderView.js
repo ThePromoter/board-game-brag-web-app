@@ -7,13 +7,18 @@ define([
             
         },
         events: {
-            'click .profile'    : 'loadProfilePage',
-            'click .history'    : 'loadHistoryPage',
-            'click .collection' : 'loadGameCollectionPage',
-            'click .groups'     : 'loadGameGroupsPage',
-            'click .rankings'   : 'loadRankingsPage'
+            'pointerup .profile'    : 'loadProfilePage',
+            'pointerup .history'    : 'loadHistoryPage',
+            'pointerup .collection' : 'loadGameCollectionPage',
+            'pointerup .groups'     : 'loadGameGroupsPage',
+            'pointerup .rankings'   : 'loadRankingsPage',
+            'pointerup .toggle-nav' : 'toggleNavDrawer'
+        },
+        toggleNavDrawer: function() {
+            $('#main-nav', this.$el).toggleClass('show');
         },
         selectPage: function(selector) {
+            $('#main-nav', this.$el).removeClass('show');
             $('.action', this.$el).removeClass('active');
             $(selector).addClass('active');
         },

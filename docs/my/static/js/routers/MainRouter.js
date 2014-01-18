@@ -11,6 +11,7 @@ function(LayoutManager, Backbone) {
         routes: {
             'profile(/*path)'      : 'profile',
             'history(/*path)'      : 'history',
+            'game-library/:gameId' : 'gameDetails',
             'game-library(/*path)' : 'gameLibrary',
             'game-groups(/*path)'  : 'gameGroups',
             'rankings(/*path)'     : 'rankings',
@@ -27,6 +28,11 @@ function(LayoutManager, Backbone) {
         },
         gameLibrary: function() {
             this.layoutManager.loadView('GAME_COLLECTION');
+        },
+        gameDetails: function(gameId) {
+            this.layoutManager.loadView('GAME_DETAILS', {
+                gameId: gameId
+            });
         },
         gameGroups: function() {
             this.layoutManager.loadView('GAME_GROUPS');

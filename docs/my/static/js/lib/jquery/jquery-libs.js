@@ -1,6 +1,7 @@
 define([
     'jquery',
-    'lib/jquery/jquery-transitions'
+    'lib/jquery/jquery-transitions',
+    'pointer'
 ], function($) {
     return $;
 });

@@ -4,10 +4,15 @@ define([
     'views/pages/BasePageView'
 ], function(Games, GameItemView, BasePageView) {
     return BasePageView.extend({
+        tagName: 'ul',
+        className: function() {
+            return this._super('className') + ' grid';
+        },
         initialize: function() {
             this.collection = new Games();
             
             this.listenTo(this.collection, 'reset', this.render);
+            this.listenTo(this.collection, 'change:selected', this.selectGame);
         },
         load: function(afterLoad) {
             var loaded = _.after(1, afterLoad);

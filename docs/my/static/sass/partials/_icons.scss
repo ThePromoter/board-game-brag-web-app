@@ -10,6 +10,13 @@ $icons-spacing: 5px;
     @include icons-sprite(logo);
 }
 
+#nav-drawer-toggle {
+    position: absolute;
+    cursor: pointer;
+    margin-top: 8px;
+    @include icons-sprite(options);
+}
+
 .icon {
     position: relative;
     
@@ -31,4 +38,17 @@ $icons-spacing: 5px;
     &.library:before { @include icons-sprite(library); }
     &.group:before { @include icons-sprite(group); }
     &.trophy:before { @include icons-sprite(trophy); }
+}
+
+.back {
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    @include icons-sprite(arrow-left-circle);
+}
+
+.close-icon {
+    display: block;
+    @include icons-sprite(x-circle);
 }

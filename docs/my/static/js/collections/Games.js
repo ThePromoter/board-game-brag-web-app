@@ -1,12 +1,12 @@
 define([
     'models/Game',
-    'backbone'
+    'collections/BaseCollection'
 ],
-function(Game, Backbone) {
-    return Backbone.Collection.extend({
+function(Game, BaseCollection) {
+    return BaseCollection.extend({
         model: Game,
         url: function() {
-            return ['api', 'game'].join('/');
+            return [this.baseUrl, 'game'].join('/');
         }
     });
 });

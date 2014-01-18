@@ -6,6 +6,7 @@ import static javax.persistence.GenerationType.*;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Map;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,6 +28,7 @@ public class Game implements Serializable {
     private String imageUrl;
     private Integer minPlayers;
     private Integer maxPlayers;
+    private Map<String, String> imageUrls;
     private Long enteredBy;
     private Date enteredDate;
     private Long changedBy;
@@ -98,7 +100,15 @@ public class Game implements Serializable {
     public void setMaxPlayers(Integer maxPlayers) {
         this.maxPlayers = maxPlayers;
     }
+    
+    public Map<String, String> getImageUrls() {
+        return imageUrls;
+    }
 
+    public void setImageUrls(Map<String, String> imageUrls) {
+        this.imageUrls = imageUrls;
+    }
+    
     @Column(name = "entered_by", nullable = false)
     public Long getEnteredBy() {
         return this.enteredBy;

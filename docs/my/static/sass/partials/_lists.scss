@@ -8,6 +8,18 @@
         padding: 0 5px;
         &:before { top: 5px; left: 5px; }
     }
+    
+    &.left {
+        text-align: left;
+        
+        li {
+            padding: 0 0 0 10px;
+            
+            &:first-child {
+                padding-left: 0;
+            }
+        }
+    }
 }
 
 .vertical {
@@ -17,5 +29,30 @@
         height: 50px;
         padding: 15px 0 15px 50px;
         &:before { top: 10px; left: 10px; }
+    }
+}
+
+ul.grid {
+    text-align: center;
+    
+    > li {
+        display: inline-block;
+        margin: 5px;
+        padding: 10px;
+        cursor: pointer;
+        @include border-radius(5px);
+        
+        img {
+            display: block;
+        }
+        
+        .title {
+            display: block;
+            text-align: center;
+        }
+        
+        &:hover {
+            background-color: $colorLighter;
+        }
     }
 }

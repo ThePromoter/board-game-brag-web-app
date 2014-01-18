@@ -26,10 +26,12 @@ require.config({
         'backbone-lib'        : 'lib/backbone/backbone-1.1.0',
         'underscore'          : 'lib/underscore/underscore-1.5.2',
         'json2'               : 'lib/json2',
+        'pointer'             : 'lib/points',
         
         // jQuery plugins
         'jquery'              : 'lib/jquery/jquery-2.0.3',
         'jquery-libs'         : 'lib/jquery/jquery-libs',
+        'datetimepicker'      : 'lib/jquery/jquery.datetimepicker',
         
         // Backbone support
         'backbone'            : 'lib/backbone/backbone-plugin',

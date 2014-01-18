@@ -1,10 +1,14 @@
 define([
-    'backbone'
+    'models/BaseModel'
 ],
-function(Backbone) {
-    return Backbone.Model.extend({
+function(BaseModel) {
+    return BaseModel.extend({
+        idAttribute: 'gameId',
+        defaults: {
+            active: false
+        },
         urlRoot: function() {
-            return ['api', 'game'].join('/');
+            return [this.baseUrl, 'game'].join('/');
         }
     });
 });

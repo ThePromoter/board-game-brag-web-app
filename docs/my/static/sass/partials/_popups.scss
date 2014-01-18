@@ -1,0 +1,278 @@
+$popupBodyPadding: 16px;
+$openSpeed: .25s;
+
+#modal-backdrop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000000;
+    @include opacity(.7);
+    @include single-transition(opacity $openSpeed linear 0s);
+}
+
+.hide #modal-backdrop {
+    @include opacity(0);
+}
+
+.modal {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #FFFFFF;
+    @include single-transition(top $openSpeed linear 0s, bottom $openSpeed linear 0s);
+    
+    @include respond-to(large) {
+        position: absolute;
+        top: 20px;
+        bottom: auto;
+        right: auto;
+        left: 50%;
+        margin-left: -300px;
+        width: 600px;
+        max-height: 400px;
+    }
+    
+    @include respond-to(medium) {
+        position: absolute;
+        top: 20px;
+        bottom: auto;
+        right: auto;
+        left: 50%;
+        margin-left: -300px;
+        width: 600px;
+        max-height: 300px;
+    }
+    
+    &.hide {
+        top: 100%;
+        bottom: -100%;
+    }
+    
+    .modal-body {
+        padding-top: $popupBodyPadding;
+        padding-bottom: $popupBodyPadding;
+        overflow: scroll;
+    }
+    
+    &.has-background {
+        background-color: $colorGray;
+        
+        .modal-body {
+            padding-top: 0;
+        }
+    }
+}
+
+.modal-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: $colorWhite;
+}
+
+.modal-header {
+    padding: $popupBodyPadding/2 $popupBodyPadding;
+    background-color: $colorGray;
+    
+    h2 {
+        text-transform: uppercase;
+        text-align: center;
+        letter-spacing: -1px;
+        margin: 0 30px;
+        line-height: 30px;
+        
+        &.no-close {
+            margin: 0;
+        }
+    }
+    
+    .dismiss {
+        float: left;
+    }
+}
+
+.modal-body {
+    width: 100%;
+    max-height: 500px;
+    margin-bottom: 44px;
+    
+    @include respond-to(small) {
+        position: absolute;
+        min-height: 0;
+        max-height: inherit;
+        top: 46px;
+        bottom: 44px;
+        margin-bottom: 0;
+    }
+    
+    @include respond-to(medium) {
+        max-height: 350px;
+    }
+    
+    p, h3, ul, ol {
+        padding: 0 $popupBodyPadding;
+        line-height: 1.5em;
+        
+        &.main {
+            text-align: center;
+        }
+        
+        &.spaced {
+            padding-bottom: 1em;
+        }
+    }
+    
+    .sprite-container {
+        margin: 0 auto 1em auto;
+        width: 80%;
+    }
+    
+    .row {
+        padding-left: 10px;
+        margin-top: 20px;
+        
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+    
+    .step-count {
+        display: block;
+        float: left;
+        font-size: 25px;
+    }
+    
+    label {
+        display: block;
+        margin: 0 $popupBodyPadding 10px $popupBodyPadding;
+        border-bottom: solid 1px $colorGray;
+        text-transform: uppercase;
+    }
+    
+    .active-games {
+        height: 30px;
+    }
+    
+    .choose-game-list {
+        height: 70px;
+        overflow-x: scroll;
+    }
+    
+    .active-games img,
+    .choose-game-list img {
+        height: 100%;
+    }
+    
+    input {
+        margin-left: $popupBodyPadding;
+    }
+    
+    .xdsoft_datetimepicker {
+        &.xdsoft_inline {
+            display: block;
+            width: 90%;
+            margin: 0 auto;
+            border: none;
+            background-color: #FFFFFF;
+            
+            .xdsoft_month {
+                @include respond-to(large) {
+                    margin-left: 150px;
+                }
+                
+                @include respond-to(medium) {
+                    margin-left: 150px;
+                }
+            }
+            
+            .xdsoft_calendar tbody td {
+                height: 30px;
+                
+                @include respond-to(large) {
+                    height: 50px;
+                }
+                
+                @include respond-to(medium) {
+                    height: 50px;
+                }
+            }
+            
+            .xdsoft_timepicker .xdsoft_time_box {
+                height: 176px;
+                
+                @include respond-to(large) {
+                    height: 276px;
+                }
+                
+                @include respond-to(medium) {
+                    height: 276px;
+                }
+                
+                .xdsoft_time {
+                    height: 50px;
+                    line-height: 50px;
+                }
+            }
+        }
+        
+        .xdsoft_calendar {
+            clear: none;
+        }
+        
+        .xdsoft_datepicker {
+            margin-right: 70px;
+            width: auto;
+            float: none;
+        }
+        
+        .xdsoft_timepicker {
+            width: 60px;
+            float: right;
+            margin-top: 8px;
+            
+            .xdsoft_prev,
+            .xdsoft_next {
+                @include respond-to(large) {
+                    margin-left: 25px;
+                }
+                
+                @include respond-to(medium) {
+                    margin-left: 25px;
+                }
+            }
+        }
+    }
+}
+
+.modal-actions {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    @include respond-to(small) {
+        @include single-transition(bottom $openSpeed linear 0s);
+    }
+    
+    &.hide {
+        bottom: -100%;
+    }
+    
+    .action {
+        background-color: $color;
+        color: $colorWhite;
+        text-transform: uppercase;
+        text-align: center;
+        padding: .75em 0;
+        cursor: pointer;
+        
+        &.disabled {
+            background-color: $colorGray;
+        }
+    }
+}

@@ -5,19 +5,18 @@ define([
     'views/pages/ProfilePageView',
     'views/pages/RecentGamesPageView',
     'views/pages/GameCollectionPageView',
+    'views/pages/GameDetailsPageView',
     'views/pages/GameGroupsPageView',
     'views/pages/RankingsPageView',
     'backbone'
-], function(MainHeaderView, MainActionsView, HomePageView, ProfilePageView, RecentGamesPageView, GameCollectionPageView, GameGroupsPageView, RankingsPageView, Backbone) {
+], function(MainHeaderView, MainActionsView, HomePageView, ProfilePageView, RecentGamesPageView, 
+            GameCollectionPageView, GameDetailsPageView, GameGroupsPageView, RankingsPageView, Backbone) {
     return Backbone.View.extend({
         el: $('body'),
         initialize: function() {
             _.bindAll(this, 'doneLoading');
             
             this.$progress = $('.progress-bar .completed', this.$el);
-        },
-        events: {
-            
         },
         renderHeader: function() {
             var header = new MainHeaderView();
@@ -27,7 +26,7 @@ define([
             var mainActions = new MainActionsView();
             this.registerSubView(mainActions);
         },
-        loadView: function(viewName) {
+        loadView: function(viewName, data) {
             var thisView = this;
             
             var PageView;
@@ -35,13 +34,14 @@ define([
                 case 'PROFILE': PageView = ProfilePageView; break;
                 case 'RECENT_GAMES': PageView = RecentGamesPageView; break;
                 case 'GAME_COLLECTION': PageView = GameCollectionPageView; break;
+                case 'GAME_DETAILS': PageView = GameDetailsPageView; break;
                 case 'GAME_GROUPS': PageView = GameGroupsPageView; break;
                 case 'RANKINGS': PageView = RankingsPageView; break;
                 case 'HOME':
                 default: PageView = HomePageView;
             }
             
-            this.newPageView = new PageView();
+            this.newPageView = new PageView(data);
             // Page loading animation
             this.$progress.show();
             var progress = 0;

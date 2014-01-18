@@ -4,11 +4,17 @@ $sansFontFamily:   'PT Sans Narrow',tahoma,sans-serif;
 $headerFontFamily: 'Sansita one', Georgia, serif;
 
 body {
-    font: 400 16px/20px $sansFontFamily;
+    font-family: $sansFontFamily;
+    font-size: 16px;
+    line-height: 1.2em;
+    font-weight: 400;
 }
 
 .heading {
-    font: 400 60px/1.2 'Sansita one', Georgia, serif;
+    font-family: $headerFontFamily;;
+    font-size: 60px;
+    line-height: 1.2em;
+    font-weight: 400;
 }
 
 hr {
@@ -20,6 +26,7 @@ hr {
 
 h1 {
     font-size: 25px;
+    line-height: 1.2em;
 }
 
 h2 {
